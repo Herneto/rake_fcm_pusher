@@ -1,5 +1,4 @@
 require 'fcm_pusher'
-
 namespace :experiment do
     desc "Send notification to User: amarildo"
     task :send => :environment do
