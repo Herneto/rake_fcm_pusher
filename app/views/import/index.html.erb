@@ -1,9 +1,29 @@
+<% if !notice.nil? %>
+    <div class="grid-container">    
+        <ul>
+        <% notice.each do |key, value|%>
+            <li><%= value %></li>
+        <% end %>
+        </ul>
+    </div>    
+<% end %>
+
 <div class="grid-container">
     <%= form_tag "/load", multipart: true do %>
-        <%= file_field_tag :file %>
-        <%= submit_tag "Enviar CSV"%>
+        <%= file_field_tag :file, accept: '.csv', onchange:"load(this);"%>
+        <%= submit_tag "Enviar CSV", disabled: true, id:"submit"%>
     <% end %>
 </div>
+
+<div id="csv" class="grid-container">
+    <div class="callout">
+    <p id="text"> </p>
+    </div>
+</div>
+
+
+
+
 <div class="grid-container">
     <table>
     <thead>

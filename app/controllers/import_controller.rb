@@ -5,7 +5,7 @@ class ImportController < ApplicationController
     end
 
     def load
-        User.loadCSV(params[:file])
-        redirect_to root_path
+        @errors = User.loadCSV(params[:file])
+        redirect_to root_path, :notice => @errors
     end
 end
